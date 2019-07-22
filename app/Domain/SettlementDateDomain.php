@@ -16,12 +16,24 @@ class SettlementDateDomain implements SettlementDateDomainInterface
         $this->dateTime = $dateTime;
     }
 
+    /**
+     * Return if a date is a week day or not
+     * @param $date
+     * @return mixed
+     */
     public function isWeekDay($date)
     {
         return $this->dateTime->isWeekDay($date) ;
     }
 
 
+    /**
+     * Return if a date is a holiday or not
+     * considering a specific country code
+     * @param $date
+     * @param string $countryCode
+     * @return bool
+     */
     public function isHoliday($date, string $countryCode = 'US')
     {
         $countryHolidays = $this->getCountryHolidays($countryCode);
@@ -30,6 +42,12 @@ class SettlementDateDomain implements SettlementDateDomainInterface
 
     }
 
+    /**
+     * Returns bank holidays by country code.
+     * Sources : https://www.interstatecapital.com/us-bank-holidays/, https://www.officeholidays.com/countries/usa/2018
+     * @param $countryCode
+     * @return array
+     */
     private function getCountryHolidays($countryCode)
     {
 
@@ -82,6 +100,13 @@ class SettlementDateDomain implements SettlementDateDomainInterface
         return $holidays;
     }
 
+    /**
+     * Returns the settlement date given an initial date and a delay
+     * @param $initialDate
+     * @param int $delay
+     * @param string $countryCode
+     * @return array
+     */
     public function getSettlementDate( $initialDate, int $delay, string $countryCode = 'US')
     {
 

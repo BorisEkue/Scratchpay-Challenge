@@ -19,6 +19,11 @@ class SettlementDateController extends Controller
         $this->dateTime = $dateTime;
     }
 
+    /**
+     * Returns if a date is a business day or not
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function isBusinessDay(Request $request)
     {
 
@@ -39,6 +44,12 @@ class SettlementDateController extends Controller
             ], 200);
     }
 
+    /**
+     * Returns the settlement date given an initial date
+     * and a delay
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getSettlementDate(Request $request)
     {
 
