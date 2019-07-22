@@ -17,6 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// API Routes
 Route::post('v1/businessDates/isBusinessDay', 'SettlementDateController@isBusinessDay');
 Route::post('v1/businessDates/getSettlementDate', 'SettlementDateController@getSettlementDate');
 Route::get('v1/businessDates/getSettlementDate', 'SettlementDateController@getSettlementDate');
+
+Route::get('v1/businessDates/publish', function (Request $request) {
+
+    Redis::publish('BankWire', json_encode($request->json()));
+});
