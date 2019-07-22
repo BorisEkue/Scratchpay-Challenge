@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('v1/businessDates/isBusinessDay', 'SettlementDateController@isBusinessDay');
+Route::post('v1/businessDates/getSettlementDate', 'SettlementDateController@getSettlementDate');

@@ -38,4 +38,27 @@ class SettlementDateController extends Controller
                 ]
             ], 200);
     }
+
+    public function getSettlementDate(Request $request)
+    {
+
+        $initialDate = $this->dateTime->parseDateTime($request->json('initialDate'));
+
+        $delay = (int) $request->json('delay') ;
+
+        $results = $this->settlementDateDomain->getSettlementDate($initialDate, $delay);
+
+
+        return response()->json(
+            [
+                'ok' => true,
+                'initialQuery' => $request->json()->all(),
+                'results' => [
+                    'businessDate' => $this->dateTime->parseDateTime($results['nextDay']) ,
+                    'totalDays' => $results['totalDays'],
+                    'holidayDays' => $results['holidays'],
+                    'weekendDays' => $results['weekendDays']
+                ]
+            ], 200);
+    }
 }
