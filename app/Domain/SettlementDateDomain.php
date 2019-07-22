@@ -38,7 +38,7 @@ class SettlementDateDomain implements SettlementDateDomainInterface
     {
         $countryHolidays = $this->getCountryHolidays($countryCode);
 
-        return in_array($date, $countryHolidays);
+        return in_array( $this->dateTime->parseDate($date), $countryHolidays);
 
     }
 
@@ -121,22 +121,25 @@ class SettlementDateDomain implements SettlementDateDomainInterface
 
         while($i < $delay)
         {
+            //
 
-            $nextDay = $nextDay->addDay();
-
-            $totalDays++;
-            if(!$nextDay->isWeekDay() || $this->isHoliday($nextDay) )
-            {
-                if(!$nextDay->isWeekDay()) $weekendDays++;
-                if($this->isHoliday($nextDay)) {
-                    $holidays++;
-
-                }
-
-            }else if($nextDay->isWeekDay() && !$this->isHoliday($nextDay))
+            if(!$nextDay->isWeekDay())  {
+                $weekendDays++;
+            }
+            if($this->isHoliday($nextDay))  {
+                $holidays++;
+            }
+            if($nextDay->isWeekDay() && !$this->isHoliday($nextDay))
             {
                 $i++;
             }
+
+
+            if( ($i + 1) <= $delay) {
+                $totalDays++;
+                $nextDay = $nextDay->addDay();
+            }
+
         }
 
 
