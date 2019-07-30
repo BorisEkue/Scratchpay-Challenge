@@ -58,6 +58,8 @@ On Windows
 
 ## Run tests
 
+Challenge's test file is located at **tests/Feature/SettlementDateTest.php**
+
 To run tests, go to the project's root folder and execute
 
 ```
