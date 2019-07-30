@@ -13,7 +13,7 @@ The project goal is to build an API that's queryable via HTTP and via Pub/Sub. T
 - **[Pub/sub: Redis pub/sub]()**
 
 
-## Holidays used are provided by
+## Holiday days used are provided by
 - **[https://www.interstatecapital.com/us-bank-holidays/](https://www.interstatecapital.com/us-bank-holidays/)**
 - **[https://www.officeholidays.com/countries/usa/2018](https://www.officeholidays.com/countries/usa/2018)**
 
