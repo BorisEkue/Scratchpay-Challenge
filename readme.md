@@ -54,3 +54,12 @@ On Windows
 ```
 
 6 -/ Check the running app on [http://localhost:8000](http://localhost:8000)
+
+
+## Run tests
+
+To run tests, go to the project's root folder and execute
+
+```
+    > vendor\bin\phpunit
+```
