@@ -27,7 +27,7 @@ The project goal is to build an API that's queryable via HTTP and via Pub/Sub. T
     $ composer install
 ```
 
-3 -/ Inside the project's root folder, copy file .env.example to .env in order to set environment file for the Laravel project :
+3 -/ Inside the project's root folder, copy file **.env.example** to **.env** in order to set environment file for the Laravel project :
 
 On Linux
 
