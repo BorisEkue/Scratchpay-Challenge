@@ -17,32 +17,61 @@ use Carbon\Carbon;
  */
 class DateTimeAdapter implements DateTimeAdapterInterface
 {
-    /* public function create($date, $timezone = '')
-     {
-         return Carbon::create();
-     }*/
 
+    /**
+     * Parse a given date
+     * @param $date
+     * @param string $timezone
+     * @return Carbon
+     */
     public function parse($date, $timezone = '')
     {
         return Carbon::parse($date);
     }
 
+    /**
+     * Parse a given date to the format Y-m-d
+     * @param $date
+     * @param string $timezone
+     * @return string
+     */
     public function parseDate($date, $timezone = '') : string
     {
         return Carbon::parse($date)->format('Y-m-d');
 
     }
 
+    /**
+     * Parse a given datetime to the format Y-m-d\TH:i:s\Z
+     * @param $dateTime
+     * @param string $timezone
+     * @return string
+     */
     public function parseDateTime($dateTime, $timezone = '') : string
     {
         return Carbon::parse($dateTime)->format('Y-m-d\TH:i:s\Z');
     }
 
+    /**
+     * Parse a given datetime to ISO format
+     * @param $dateTime
+     * @param string $timezone
+     * @return string
+     */
+    public function parseDateIsoFormat($dateTime, $timezone = '') : string
+    {
+        return Carbon::parse($dateTime)->isoFormat('MMMM Do YYYY');
+    }
+
+    /**
+     * Check if a given date is whether a week day or not
+     * @param $date
+     * @return mixed
+     */
     public function isWeekDay($date)
     {
         return $date->isWeekday();
     }
-
 
 
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Adapter\Interfaces\DateTimeAdapterInterface;
-
 use App\Domain\Interfaces\SettlementDateDomainInterface;
 use Illuminate\Http\Request;
 
@@ -65,7 +64,7 @@ class SettlementDateController extends Controller
                 'ok' => true,
                 'initialQuery' => $request->json()->all(),
                 'results' => [
-                    'businessDate' => $this->dateTime->parseDateTime($results['nextDay']) ,
+                    'businessDate' => $this->dateTime->parseDateIsoFormat($results['nextDay']),
                     'totalDays' => $results['totalDays'],
                     'holidayDays' => $results['holidays'],
                     'weekendDays' => $results['weekendDays']

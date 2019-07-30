@@ -44,7 +44,7 @@ class SettlementDateDomain implements SettlementDateDomainInterface
 
     /**
      * Returns bank holidays by country code.
-     * Sources : https://www.interstatecapital.com/us-bank-holidays/, https://www.officeholidays.com/countries/usa/2018
+     * Sources : https://www.interstatecapital.com/us-bank-holidays/ , https://www.officeholidays.com/countries/usa/2018
      * @param $countryCode
      * @return array
      */
@@ -112,34 +112,36 @@ class SettlementDateDomain implements SettlementDateDomainInterface
 
         $initialDate = $this->dateTime->parse($initialDate);
 
-
         (int) $totalDays = 0;
         (int) $holidays = 0;
         (int) $weekendDays = 0;
         (int) $i = 0;
-        $nextDay = $initialDate;
+        $nextDay = clone $initialDate;
 
         while($i < $delay)
         {
-            //
-
             if(!$nextDay->isWeekDay())  {
                 $weekendDays++;
             }
-            if($this->isHoliday($nextDay))  {
-                $holidays++;
+
+            if($this->isHoliday($nextDay) )  {
+
+                /**
+                 * If the initial date is holiday don't increment $holidays
+                 */
+                if($nextDay != $initialDate)
+                    $holidays++;
             }
+
             if($nextDay->isWeekDay() && !$this->isHoliday($nextDay))
             {
                 $i++;
             }
 
-
             if( ($i + 1) <= $delay) {
                 $totalDays++;
                 $nextDay = $nextDay->addDay();
             }
-
         }
 
 

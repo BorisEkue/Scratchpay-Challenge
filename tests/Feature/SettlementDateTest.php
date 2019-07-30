@@ -56,7 +56,7 @@ class SettlementDateTest extends TestCase
                         "delay" => 3
                     ],
                     "results" => [
-                        "businessDate" => "2018-11-15T00:00:00Z",
+                        "businessDate" => "November 15th 2018",
                         "totalDays" => 5,
                         "holidayDays" => 1,
                         "weekendDays" => 2
@@ -82,7 +82,7 @@ class SettlementDateTest extends TestCase
                     "delay" => 3
                 ],
                 "results" => [
-                    "businessDate" => "2018-11-19T00:00:00Z",
+                    "businessDate" => "November 19th 2018",
                     "totalDays" => 4,
                     "holidayDays" => 0,
                     "weekendDays" => 2
@@ -109,9 +109,9 @@ class SettlementDateTest extends TestCase
                     "delay" => 20
                 ],
                 "results" => [
-                    "businessDate" => "2019-01-24T00:00:00Z",
+                    "businessDate" => "January 24th 2019",
                     "totalDays" => 30,
-                    "holidayDays" => 3,
+                    "holidayDays" => 2,
                     "weekendDays" => 8
                 ]
             ])
