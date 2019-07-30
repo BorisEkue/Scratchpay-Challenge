@@ -25,14 +25,13 @@ class SettlementDateTest extends TestCase
      */
     public function testIsBusinessDay()
     {
-        $this->json('POST', '/api/v1/isBusinessDay/',[
+        $this->json('POST', '/api/v1/businessDates/isBusinessDay',[
                 'initialDate' => "November 10 2018"
             ])
             ->assertExactJson([
                 "ok" => true,
                 "initialQuery" => [
-                    "initialDate" => "November 10 2018",
-                    "delay" => 3
+                    "initialDate" => "November 10 2018"
                 ],
                 "results" => [
                     "isBusinessDate" => false
@@ -46,7 +45,7 @@ class SettlementDateTest extends TestCase
      */
     public function testBusinessDateOne()
     {
-        $this->json('POST', '/api/v1/businessDates/', [
+        $this->json('POST', '/api/v1/businessDates/getSettlementDate', [
                     'initialDate' => "November 10 2018",
                     'delay' => 3
                 ])
@@ -72,7 +71,7 @@ class SettlementDateTest extends TestCase
      */
     public function testBusinessDateTwo()
     {
-        $this->json('POST', '/api/v1/businessDates/', [
+        $this->json('POST', '/api/v1/businessDates/getSettlementDate', [
             'initialDate' => "November 15 2018",
             'delay' => 3
         ])
@@ -99,7 +98,7 @@ class SettlementDateTest extends TestCase
      */
     public function testBusinessDateThree()
     {
-        $this->json('POST', '/api/v1/businessDates/', [
+        $this->json('POST', '/api/v1/businessDates/getSettlementDate', [
             'initialDate' => "December 25 2018",
             'delay' => 20
         ])

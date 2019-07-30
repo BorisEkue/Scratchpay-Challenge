@@ -52,3 +52,5 @@ On Windows
 ```
     $ php artisan serve
 ```
+
+6 -/ Check the running app on [http://localhost:8000](http://localhost:8000)
