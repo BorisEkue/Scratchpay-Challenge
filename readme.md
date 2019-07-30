@@ -13,3 +13,42 @@ The project goal is to build an API that's queryable via HTTP and via Pub/Sub. T
 - **[Pub/sub: Redis pub/sub]()**
 
 
+## Set-up instructions
+1 -/ Clone the project from Bitbucket's repository https://bitbucket.org/borisclaude/scratchpaysettlement/src/master/
+ 
+```
+    $ git clone https://bitbucket.org/borisclaude/scratchpaysettlement.git
+```
+
+2 -/ After cloning done, go into the project's root folder to install project dependencies :
+
+```
+    $ cd scratchpaysettlement
+    $ composer install
+```
+
+3 -/ Inside the project's root folder, copy file .env.example to .env in order to set environment file for the Laravel project :
+
+On Linux
+
+```
+    $ cp -a .env.example .env
+```
+
+On Windows
+
+```
+    > copy .env.example .env
+```
+
+4 -/ After that, generate an app key with the command :
+
+```
+    $ php artisan key:generate
+```
+
+5 -/ Then you can run the app with :
+
+```
+    $ php artisan serve
+```
