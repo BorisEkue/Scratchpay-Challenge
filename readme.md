@@ -70,3 +70,7 @@ To run tests, go to the project's root folder and execute
 ```
     > vendor\bin\phpunit
 ```
+
+
+## API routes
+Routes are located in **routes/api.php** 
